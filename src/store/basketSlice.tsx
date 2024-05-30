@@ -46,9 +46,17 @@ export const basketSlice = createSlice({
     setCardNumber: (state, action: PayloadAction<string>) => {
       state.cardNumber = action.payload
     },
+    resetBasket: (state) => {
+      Object.assign(state, initialState)
+    },
   },
 })
 
-export const { addToBasket, removeFromBasket, changeQuantity, setCardNumber } =
-  basketSlice.actions
+export const {
+  addToBasket,
+  removeFromBasket,
+  changeQuantity,
+  setCardNumber,
+  resetBasket,
+} = basketSlice.actions
 export default basketSlice.reducer

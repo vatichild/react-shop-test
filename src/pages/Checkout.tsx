@@ -22,6 +22,7 @@ const Checkout = () => {
         ))}
       </DataTable>
       <CardNumberInput
+        defaultValue={cardNumber}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           dispatch(setCardNumber(e.target.value))
         }}
