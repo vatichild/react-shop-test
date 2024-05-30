@@ -27,6 +27,7 @@ const Checkout = () => {
       </DataTable>
       <CardNumberInput
         defaultValue={cardNumber}
+        isValid={isSixteenDigits(cardNumber)}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           dispatch(setCardNumber(e.target.value))
         }}
