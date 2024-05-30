@@ -1,3 +1,4 @@
+import BasketItems from "../components/BasketItems"
 import TotalPrice from "../components/TotalPrice"
 import type { RootState } from "../store/store"
 import { useSelector } from "react-redux"
@@ -17,12 +18,7 @@ const Header = ({ children }: { children?: React.ReactNode }) => {
   }
   return (
     <nav className="flex flex-row justify-end p-4 border-b text-base">
-      <div className="mr-4">
-        Basket Items:
-        {basket.reduce((a, b) => {
-          return a + b.quantity
-        }, 0)}
-      </div>
+      <BasketItems basket={basket} />
       <TotalPrice totalPrice={totalPrice()} />
     </nav>
   )
