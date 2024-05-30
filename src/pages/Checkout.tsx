@@ -11,6 +11,10 @@ import ShoppingButton from "../components/ShoppingButton"
 const Checkout = () => {
   const { cardNumber, basket } = useSelector((state: RootState) => state.basket)
   const dispatch = useDispatch()
+  const isSixteenDigits = (input: string) => {
+    const regex = /^\d{16}$/
+    return regex.test(input)
+  }
   return (
     <>
       <DataTable>
@@ -32,7 +36,7 @@ const Checkout = () => {
         <CheckoutButton
           to="/success"
           label="Checkout"
-          disabled={!basket.length || cardNumber === ""}
+          disabled={!basket.length || !isSixteenDigits(cardNumber)}
         />
       </div>
     </>
